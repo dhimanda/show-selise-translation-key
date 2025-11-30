@@ -1,0 +1,17 @@
+Privacy Policy for Translation Key Blocker
+
+Data Collection:
+This extension does not collect, store, or transmit any personal data, browsing history, or user information.
+
+Local Storage:
+The extension stores only one piece of data locally: a boolean value indicating whether translation blocking is enabled or disabled. This data remains on your device and is never shared or transmitted.
+
+Permissions:
+- declarativeNetRequest: Used solely to block specific translation API endpoints when activated by the user
+- storage: Used to remember your on/off preference across browser sessions
+
+No Third-Party Services:
+This extension does not communicate with any external servers or third-party services.
+
+Contact:
+For questions or concerns, please contact [your-email@example.com]
