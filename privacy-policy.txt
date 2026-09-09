@@ -1,14 +1,16 @@
-Privacy Policy for Translation Key Blocker
+Privacy Policy for See Translation Keys
 
 Data Collection:
 This extension does not collect, store, or transmit any personal data, browsing history, or user information.
 
 Local Storage:
-The extension stores only one piece of data locally: a boolean value indicating whether translation blocking is enabled or disabled. This data remains on your device and is never shared or transmitted.
+The extension stores only one piece of data locally: a boolean value indicating whether showing translation keys is enabled or disabled. This data remains on your device and is never shared or transmitted.
 
 Permissions:
-- declarativeNetRequest: Used solely to block specific translation API endpoints when activated by the user
 - storage: Used to remember your on/off preference across browser sessions
+
+How it works:
+When enabled, the extension rewrites GetUilmFile translation responses in the page so each value is replaced with its key. No data is sent off the device.
 
 No Third-Party Services:
 This extension does not communicate with any external servers or third-party services.

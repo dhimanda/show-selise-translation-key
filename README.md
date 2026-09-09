@@ -1,15 +1,16 @@
 # Selise Translation Key Extension
 
-A Chrome extension that blocks translation file requests to show translation keys instead of translated text on Selise applications.
+A Chrome extension that rewrites translation file responses so you can see translation keys instead of translated text on Selise applications.
 
 <img width="1373" height="831" alt="Extension Preview" src="https://github.com/user-attachments/assets/93896094-9772-4999-943d-95865420ff99" />
 
 ## Features
 
-- Toggle translation file blocking on/off
-- Blocks translation requests from two API endpoints:
+- Toggle showing translation keys on/off
+- Rewrites translation responses from these API endpoints:
   - `/api/uilm/v*/LanguageManager/Query/GetUilmFile`
   - `/uilm/v*/Key/GetUilmFile`
+  - `*/BlocksConfiguration/UILM/GetUilmFile`
 - Simple popup interface with enable/disable toggle
 
 ## Installation in Chrome
@@ -38,23 +39,22 @@ A Chrome extension that blocks translation file requests to show translation key
 
 6. **Pin the extension (optional)**
    - Click the puzzle piece icon in Chrome toolbar
-   - Find "Selise Translation Key" and click the pin icon
+   - Find "See Translation Keys" and click the pin icon
 
 ## Usage
 
 1. Click the extension icon in your Chrome toolbar
-2. Toggle the switch to enable/disable translation blocking
-3. Refresh the Selise application page to see the changes
-4. When enabled, you'll see translation keys instead of translated text
+2. Toggle the checkbox to enable/disable showing translation keys
+3. The current page reloads so the app fetches translations again
+4. When enabled, each translation value is replaced with its key
+5. When disabled, the original translated values are shown
 
 ## How It Works
 
-The extension uses Chrome's `declarativeNetRequest` API to intercept and block network requests to translation file endpoints. When blocked, the application falls back to displaying translation keys.
+The extension intercepts `GetUilmFile` responses in the page and, when enabled, replaces each translation value with its key. When disabled, the original JSON is left unchanged.
 
 ## Permissions Required
 
-- `declarativeNetRequest`: To block translation file requests
-- `declarativeNetRequestWithHostAccess`: To access specific hosts
 - `storage`: To persist the enabled/disabled state
 
 ## Development
